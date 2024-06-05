@@ -16,5 +16,5 @@ resource "azurerm_virtual_hub" "vhub" {
 
   sku            = var.sku
   virtual_wan_id = var.virtual_wan_id
-  tags           = try(var.tags.virtual_hub, var.tags)
+  tags           = try(var.tags.virtual_hub, null)
 }
