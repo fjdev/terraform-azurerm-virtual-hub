@@ -3,6 +3,12 @@ variable "name" {
   description = "(Required) The name of the Virtual Hub. Changing this forces a new resource to be created."
 }
 
+variable "deploy_resource_group" {
+  type        = bool
+  default     = true
+  description = "(Optional) Specifies whether to deploy the resource group or not. Defaults to true."
+}
+
 variable "resource_group_name" {
   type        = string
   description = "(Required) Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created."
@@ -46,20 +52,14 @@ variable "virtual_wan_id" {
   description = "(Optional) The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created."
 }
 
-variable "tags" {
-  type        = any
-  default     = null
-  description = "(Optional) A mapping of tags to assign to the Virtual Hub."
-}
-
-variable "deploy_resource_group" {
-  type        = bool
-  default     = true
-  description = "(Optional) Specifies whether to deploy the resource group or not. Defaults to true."
-}
-
 variable "managed_by" {
   type        = string
   default     = null
   description = "(Optional) The ID of the resource or application that manages this Resource Group."
+}
+
+variable "tags" {
+  type        = any
+  default     = null
+  description = "(Optional) A mapping of tags to assign to the Virtual Hub."
 }
