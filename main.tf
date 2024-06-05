@@ -6,7 +6,7 @@ resource "azurerm_virtual_hub" "vhub" {
   hub_routing_preference = var.hub_routing_preference
 
   dynamic "route" {
-    for_each = var.route != null ? { for index, route in var.route : index => route } : {}
+    for_each = var.routes != null ? { for index, route in var.routes : index => route } : {}
 
     content {
       address_prefixes    = route.value.address_prefixes

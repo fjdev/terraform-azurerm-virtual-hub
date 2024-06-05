@@ -32,7 +32,7 @@ No requirements.
 | <a name="input_managed_by"></a> [managed\_by](#input\_managed\_by) | (Optional) The ID of the resource or application that manages this Resource Group. | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Required) The name of the Virtual Hub. Changing this forces a new resource to be created. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | (Required) Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created. | `string` | n/a | yes |
-| <a name="input_route"></a> [route](#input\_route) | (Optional) One or more route blocks as defined below. | <pre>list(object({<br>    address_prefixes    = list(string)<br>    next_hop_ip_address = string<br>  }))</pre> | `null` | no |
+| <a name="input_routes"></a> [routes](#input\_routes) | (Optional) One or more route blocks as defined below. | <pre>list(object({<br>    address_prefixes    = list(string)<br>    next_hop_ip_address = string<br>  }))</pre> | `null` | no |
 | <a name="input_sku"></a> [sku](#input\_sku) | (Optional) The SKU of the Virtual Hub. Possible values are Basic and Standard. Changing this forces a new resource to be created. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) A mapping of tags to assign to the Virtual Hub. | `any` | `null` | no |
 | <a name="input_virtual_wan_id"></a> [virtual\_wan\_id](#input\_virtual\_wan\_id) | (Optional) The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created. | `string` | `null` | no |

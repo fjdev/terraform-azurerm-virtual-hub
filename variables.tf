@@ -31,7 +31,7 @@ variable "hub_routing_preference" {
   description = "(Optional) The hub routing preference. Possible values are ExpressRoute, ASPath and VpnGateway. Defaults to ExpressRoute."
 }
 
-variable "route" {
+variable "routes" {
   type = list(object({
     address_prefixes    = list(string)
     next_hop_ip_address = string
