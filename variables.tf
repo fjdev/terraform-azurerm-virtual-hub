@@ -63,3 +63,46 @@ variable "tags" {
   default     = null
   description = "(Optional) A mapping of tags to assign to the Virtual Hub."
 }
+
+variable "virtual_hub_connections" {
+  type = object({
+    internet_security_enabled = optional(bool)
+    routing = optional(object({
+      associated_route_table_id = optional(string)
+      inbound_route_map_id      = optional(string)
+      outbound_route_map_id     = optional(string)
+      propagated_route_tables = optional(object({
+        labels          = optional(list(string))
+        route_table_ids = optional(list(string))
+      }))
+      static_vnet_local_route_override_criteria = optional(string)
+      static_vnet_routes = optional(object({
+        name                = optional(string)
+        address_prefixes    = optional(list(string))
+        next_hop_ip_address = optional(string)
+      }))
+    }))
+    remote_virtual_networks = map(object({
+      subscription_id           = string
+      resource_group_name       = string
+      internet_security_enabled = optional(bool)
+      routing = optional(object({
+        associated_route_table_id = optional(string)
+        inbound_route_map_id      = optional(string)
+        outbound_route_map_id     = optional(string)
+        propagated_route_tables = optional(object({
+          labels          = optional(list(string))
+          route_table_ids = optional(list(string))
+        }))
+        static_vnet_local_route_override_criteria = optional(string)
+        static_vnet_routes = optional(object({
+          name                = optional(string)
+          address_prefixes    = optional(list(string))
+          next_hop_ip_address = optional(string)
+        }))
+      }))
+    }))
+  })
+  default     = null
+  description = "(Optional) A virtual_hub_connections block as defined below."
+}
