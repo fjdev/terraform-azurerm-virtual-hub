@@ -20,6 +20,7 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_virtual_hub.vhub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_hub) | resource |
+| [azurerm_virtual_hub_connection.vhub_con](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_hub_connection) | resource |
 
 ## Inputs
 
@@ -35,6 +36,7 @@ No requirements.
 | <a name="input_routes"></a> [routes](#input\_routes) | (Optional) One or more route blocks as defined below. | <pre>list(object({<br>    address_prefixes    = list(string)<br>    next_hop_ip_address = string<br>  }))</pre> | `null` | no |
 | <a name="input_sku"></a> [sku](#input\_sku) | (Optional) The SKU of the Virtual Hub. Possible values are Basic and Standard. Changing this forces a new resource to be created. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) A mapping of tags to assign to the Virtual Hub. | `any` | `null` | no |
+| <a name="input_virtual_hub_connections"></a> [virtual\_hub\_connections](#input\_virtual\_hub\_connections) | (Optional) A virtual\_hub\_connections block as defined below. | <pre>object({<br>    internet_security_enabled = optional(bool)<br>    routing = optional(object({<br>      associated_route_table_id = optional(string)<br>      inbound_route_map_id      = optional(string)<br>      outbound_route_map_id     = optional(string)<br>      propagated_route_tables = optional(object({<br>        labels          = optional(list(string))<br>        route_table_ids = optional(list(string))<br>      }))<br>      static_vnet_local_route_override_criteria = optional(string)<br>      static_vnet_routes = optional(object({<br>        name                = optional(string)<br>        address_prefixes    = optional(list(string))<br>        next_hop_ip_address = optional(string)<br>      }))<br>    }))<br>    remote_virtual_networks = map(object({<br>      subscription_id           = string<br>      resource_group_name       = string<br>      internet_security_enabled = optional(bool)<br>      routing = optional(object({<br>        associated_route_table_id = optional(string)<br>        inbound_route_map_id      = optional(string)<br>        outbound_route_map_id     = optional(string)<br>        propagated_route_tables = optional(object({<br>          labels          = optional(list(string))<br>          route_table_ids = optional(list(string))<br>        }))<br>        static_vnet_local_route_override_criteria = optional(string)<br>        static_vnet_routes = optional(object({<br>          name                = optional(string)<br>          address_prefixes    = optional(list(string))<br>          next_hop_ip_address = optional(string)<br>        }))<br>      }))<br>    }))<br>  })</pre> | `null` | no |
 | <a name="input_virtual_wan_id"></a> [virtual\_wan\_id](#input\_virtual\_wan\_id) | (Optional) The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created. | `string` | `null` | no |
 
 ## Outputs
